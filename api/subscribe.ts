@@ -3,6 +3,7 @@ import dayjs from 'dayjs'
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   const clashSubscribeAddress = getClashSubscribeAddress()
+  console.log('clashSubscribeAddress: ', clashSubscribeAddress)
   const response = await fetch(clashSubscribeAddress)
   const configYaml = await response.text()
 
