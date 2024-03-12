@@ -1,5 +1,13 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
+import 'dayjs/locale/zh';
+
+dayjs.locale('zh');
+dayjs.extend(utc);
+dayjs.extend(timezone);
+dayjs.tz.setDefault('Asia/Shanghai');
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   const clashSubscribeAddress = getClashSubscribeAddress()
@@ -17,6 +25,8 @@ function getClashSubscribeAddress() {
   const year = now.format('YYYY')
   const month = now.format('MM')
   const day = now.format('DD')
+
+  console.log(`now:`, now.format('YYYY-MM-DD HH:mm:ss'))
 
   return `https://freeclash.org/wp-content/uploads/${year}/${month}/${month}${day}.yaml`
 }
