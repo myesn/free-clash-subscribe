@@ -1,6 +1,9 @@
-# Node.js Hello World
+# Free Clash Subscribe
 
-Simple Node.js + Vercel example that returns a "Hello World" response.
+```
+https://freeclash.myesn.cn/api/subscribe
+```
+![image](https://github.com/myesn/free-clash-subscribe/assets/18598579/8fdf05da-0147-492e-9229-ed0356e50073)
 
 ## How to Use
 
