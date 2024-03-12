@@ -2,12 +2,9 @@ import type { VercelRequest, VercelResponse } from '@vercel/node'
 import dayjs from 'dayjs'
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
-import 'dayjs/locale/zh';
 
-dayjs.locale('zh');
 dayjs.extend(utc);
 dayjs.extend(timezone);
-dayjs.tz.setDefault('Asia/Shanghai');
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   const clashSubscribeAddress = getClashSubscribeAddress()
@@ -21,7 +18,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 }
 
 function getClashSubscribeAddress() {
-  const now = dayjs()
+  const now = dayjs().tz('Asia/Shanghai')
   const year = now.format('YYYY')
   const month = now.format('MM')
   const day = now.format('DD')
